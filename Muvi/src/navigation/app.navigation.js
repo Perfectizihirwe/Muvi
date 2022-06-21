@@ -3,6 +3,7 @@ import OnBoardScreen from "../screens/onBoardScreen";
 import SignUp from "../screens/signUpScreen";
 import Login from "../screens/LoginScreen";
 import MainNavigation from "./main.navigation";
+import WelcomeScreen from "../screens/welcomeScreen";
 
 
 const Stack = createStackNavigator();
@@ -18,6 +19,11 @@ export default function AppNavigation() {
             <Stack.Screen 
             name="SignUp"
             component={SignUp}
+            options={{ headerShown: false}}
+            />
+            <Stack.Screen 
+            name="Welcome"
+            component={WelcomeScreen}
             options={{ headerShown: false}}
             />
             <Stack.Screen 
