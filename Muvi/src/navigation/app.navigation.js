@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 export default function AppNavigation() {
     return (
-        <Stack.Navigator initialRouteName="OnBoard">
+        <Stack.Navigator initialRouteName="MainNavigation">
             <Stack.Screen 
             name="OnBoard"
             component={OnBoardScreen}

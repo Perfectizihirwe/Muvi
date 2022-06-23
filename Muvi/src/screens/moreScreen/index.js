@@ -3,7 +3,7 @@ import { StyleSheet, Button, View, Text } from 'react-native';
 export default function MoreScreen ({navigation}) {
   return (
     <View style={styles.container}>
-        <Text>morescreen</Text>
+        <Text style={{color: "#fff", fontSize: 30}}>Morescreen</Text>
       <Button
       onPress={() => navigation.navigate("Home")} 
       title="Move to"
@@ -15,7 +15,7 @@ export default function MoreScreen ({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#26272b',
     alignItems: 'center',
     justifyContent: 'center',
   },

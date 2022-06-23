@@ -3,7 +3,7 @@ import { StyleSheet, Button, View, Text } from 'react-native';
 export default function MyListScreen ({navigation}) {
   return (
     <View style={styles.container}>
-        <Text>mylistscreen</Text>
+        <Text style={{color: "#fff", fontSize: 30}}>Mylistscreen</Text>
       <Button
       onPress={() => navigation.navigate("More")} 
       title="Move to"
@@ -15,7 +15,7 @@ export default function MyListScreen ({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#26272b',
     alignItems: 'center',
     justifyContent: 'center',
   },

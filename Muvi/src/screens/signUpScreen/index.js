@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   inputarea1: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginHorizontal: 20,
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   inputarea2: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginHorizontal: 20,
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   inputarea3: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginHorizontal: 20,
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
@@ -183,31 +183,37 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   input1: {
+    flex:5,
     height: 40,
     backgroundColor: "#26272b",
     color: "#fff",
-    maxWidth: 95,
+    minWidth: 100,
   },
   inputicon1: {
-    paddingLeft: 195,
+    flex: 1,
+    marginLeft: 100,
   },
   input2: {
+    flex:5,
     height: 40,
     backgroundColor: "#26272b",
     color: "#fff",
-    maxWidth: 60,
+    minWidth: 100,
   },
   inputicon2: {
-    paddingLeft: 225,
+    flex: 1,
+    marginLeft: 100,
   },
   input3: {
+    flex:5,
     height: 40,
     backgroundColor: "#26272b",
     color: "#fff",
-    maxWidth: 110,
+    minWidth: 100,
   },
   inputicon3: {
-    paddingLeft: 175,
+    flex: 1,
+    paddingLeft: 100,
   },
   signUpButton1: {
     height: 40,

@@ -13,7 +13,7 @@ function OnBoardScreen({ navigation }) {
   const RenderItem = ({ item }) => {
     return (
       <View>
-        <StatusBar hidden={true} />
+        <StatusBar hidden={false} />
         <ImageBackground style={styles.backImage} source={item.image}>
           <Text style={styles.introTitle}>{item.title}</Text>
           <Text style={styles.introText}>{item.text}</Text>

@@ -17,20 +17,22 @@ export default function MainNavigation () {
     
               if (route.name === "Home") {
                 iconName = focused ? "home" : "home";
-              } else if (route.name === "Consult") {
-                iconName = focused ? "chatbubbles" : "chatbubbles";
+              } else if (route.name === "Search") {
+                iconName = focused ? "search" : "search";
               } 
-                else if (route.name === "Science") {
-                  iconName = focused ? "document" : "document";
+                else if (route.name === "MyList") {
+                  iconName = focused ? "folder" : "folder";
               }
-                else if (route.name === "Profile") {
-                  iconName = focused ? "person" : "person";
+                else if (route.name === "More") {
+                  iconName = focused ? "grid" : "grid";
               }
     
-              return (<icons.Ionicons name={iconName} size={size} color={color} />);
+              return (<icons.Feather name={iconName} size={size} color={color} />);
             },
-            tabBarActiveTintColor: "#16278e",
-            tabBarInactiveTintColor: "gray",
+            tabBarActiveTintColor: "#fed130",
+            tabBarInactiveTintColor: "white",
+            tabBarStyle: { backgroundColor: "#202123"},
+            tabBarShowLabel: false,
           })}
           >
             <Tab.Screen 
