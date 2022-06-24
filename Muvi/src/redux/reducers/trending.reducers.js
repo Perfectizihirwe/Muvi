@@ -1,7 +1,7 @@
 const initialState = {
     trending_movies: [],
     error: null,
-    trending_loading: false,
+    trending_loading: true,
 };
 
 export default function fetchTrendingReducers (state=initialState, action) {

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   topbar: {
     backgroundColor: "#202123",
-    maxHeight: 100,
+    minHeight: 40,
   },
   logoArea: {
     flexDirection: "row",
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     height: "150%",
   },
   logoAreaText: {
-    fontSize: 27,
+    fontSize: 35,
     color: "#fff",
     fontWeight: "bold",
   },
