@@ -12,6 +12,7 @@ export const UpdateId = (id) => (dispatch) => {
     },
   }).then((responseData) => {
     const { data } = responseData;
+    console.log(data)
     dispatch({
       type: "GET MOVIE DETAIL DONE",
       paload: data,

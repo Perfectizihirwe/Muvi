@@ -11,8 +11,9 @@ import {
   import { Image } from "react-native";
   import * as icons from "@expo/vector-icons";
   import { UpdateId } from "../../../redux/actions";
+  import { connect } from "react-redux";
 
-  export default function DetailScreen({navigation}) {
+ function DetailScreen({navigation}) {
     
     return (
           <ScrollView>
@@ -126,6 +127,10 @@ import {
           </ScrollView>
     );
   }
+
+  const mapState = ((state)=>({detail: state.movieDetail}));
+
+  export default connect (mapState, {UpdateId: UpdateId})(DetailScreen)
   
   const styles = StyleSheet.create({
     container: {
