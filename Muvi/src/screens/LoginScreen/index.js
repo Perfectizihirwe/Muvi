@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Image,
   View,
   Text,
@@ -8,6 +7,8 @@ import {
   TextInput,
 } from "react-native";
 import * as icons from "@expo/vector-icons";
+import { ScaledSheet } from "react-native-size-matters";
+
 
 export default function Login({ navigation }) {
   return (
@@ -93,27 +94,27 @@ export default function Login({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#26272b",
   },
   topBar: {
-    marginTop: 30,
-    marginHorizontal: 20,
+    marginTop: "30@vs",
+    marginHorizontal: "20@s",
     flexDirection: "row",
     alignItems: "center",
   },
   topBarText: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: "20@s",
     fontWeight: "bold",
-    paddingLeft: 10,
+    paddingLeft: "10@s",
   },
   logoArea: {
     flexDirection: "row",
-    marginVertical: 40,
-    marginHorizontal: 20,
+    marginVertical: "40@vs",
+    marginHorizontal: "20@s",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -122,90 +123,90 @@ const styles = StyleSheet.create({
     height: "150%",
   },
   logoAreaText: {
-    fontSize: 27,
+    fontSize: "27@s",
     color: "#fff",
     fontWeight: "bold",
   },
   text1: {
     color: "#fff",
-    marginHorizontal: 20,
+    marginHorizontal: "40@s",
     textAlign: "center",
   },
   inputarea1: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 0.5,
-    marginHorizontal: 20,
+    borderWidth: "1@s",
+    marginHorizontal: "20@s",
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
     borderRightColor: "#26272b",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: "10@vs",
   },
   inputarea2: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 0.5,
-    marginHorizontal: 20,
+    borderWidth: "1@s",
+    marginHorizontal: "20@s",
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
     borderRightColor: "#26272b",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: "10@vs",
   },
 
   input1: {
     flex:5,
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
-    minWidth: 100,
+    minWidth: "100@s",
   },
   inputicon1: {
     flex: 1,
-    marginLeft: 100,
+    marginLeft: "100@s",
   },
   input2: {
     flex:5,
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
-    minWidth: 100,
+    minWidth: "100@s",
   },
   inputicon2: {
     flex: 1,
-    marginLeft: 100,
+    marginLeft: "100@s",
   },
 
   signUpButton1: {
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#fed130",
-    margin: 20,
-    borderRadius: 5,
+    margin: "20@s",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },
   text2: {
     flexDirection: "row",
-    marginHorizontal: 25,
+    marginHorizontal: "25@s",
   },
   signUpButton2: {
     flexDirection: "row",
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#000",
-    marginHorizontal: 20,
-    marginTop: 10,
-    borderRadius: 5,
+    marginHorizontal: "20@s",
+    marginTop: "10@vs",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },
   signUpButton3: {
     flexDirection: "row",
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#fff",
-    marginHorizontal: 20,
-    marginTop: 10,
-    borderRadius: 5,
+    marginHorizontal: "20@s",
+    marginTop: "10@vs",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },

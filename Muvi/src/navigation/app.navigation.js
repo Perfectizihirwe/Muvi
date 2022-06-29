@@ -4,6 +4,7 @@ import SignUp from "../screens/signUpScreen";
 import Login from "../screens/LoginScreen";
 import MainNavigation from "./main.navigation";
 import WelcomeScreen from "../screens/welcomeScreen";
+import DetailScreen from "../screens/homeScreen/Detail";
 
 
 const Stack = createStackNavigator();
@@ -35,6 +36,11 @@ export default function AppNavigation() {
             name="MainNavigation"
             component={MainNavigation}
             options={{ headerShown: false}}
+            />
+            <Stack.Screen
+            name="DetailScreen"
+            component={DetailScreen}
+            options={{headerShown: false}}
             />
         </Stack.Navigator>
     );

@@ -8,6 +8,7 @@ import {
   TextInput,
 } from "react-native";
 import * as icons from "@expo/vector-icons";
+import { ScaledSheet, scale, verticalScale } from "react-native-size-matters";
 
 export default function SignUp({ navigation }) {
   return (
@@ -15,7 +16,7 @@ export default function SignUp({ navigation }) {
       <StatusBar backgroundColor={"#26272b"} hidden={false} />
       <View style={styles.topBar}>
         <TouchableOpacity onPress={() => navigation.navigate("Welcome")}>
-          <icons.Ionicons name="arrow-back-outline" size={26} color="#fed130" />
+          <icons.Ionicons name="arrow-back-outline" size={scale(26)} color="#fed130" />
         </TouchableOpacity>
         <Text style={styles.topBarText}>Register</Text>
       </View>
@@ -38,7 +39,7 @@ export default function SignUp({ navigation }) {
         <TouchableOpacity style={styles.inputicon1}>
           <icons.MaterialCommunityIcons
             name="email-outline"
-            size={20}
+            size={scale(20)}
             color="#fed130"
           />
         </TouchableOpacity>
@@ -50,7 +51,7 @@ export default function SignUp({ navigation }) {
           placeholderTextColor={"gray"}
         />
         <TouchableOpacity style={styles.inputicon2}>
-          <icons.Feather name="lock" size={20} color="#fed130" />
+          <icons.Feather name="lock" size={scale(20)} color="#fed130" />
         </TouchableOpacity>
       </View>
       <View style={styles.inputarea3}>
@@ -60,7 +61,7 @@ export default function SignUp({ navigation }) {
           placeholderTextColor={"gray"}
         />
         <TouchableOpacity style={styles.inputicon3}>
-          <icons.Feather name="lock" size={20} color="#fed130" />
+          <icons.Feather name="lock" size={scale(20)} color="#fed130" />
         </TouchableOpacity>
       </View>
       <TouchableOpacity
@@ -70,36 +71,36 @@ export default function SignUp({ navigation }) {
         <Text>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.text2}>
-        <Text style={{ color: "#fff", fontSize: 13 }}>
+        <Text style={{ color: "#fff", fontSize: scale(13) }}>
           By signing up I accept
         </Text>
         <TouchableOpacity>
-          <Text style={{ color: "#fed130", fontSize: 13 }}> terms of use </Text>
+          <Text style={{ color: "#fed130", fontSize: scale(13) }}> terms of use </Text>
         </TouchableOpacity>
-        <Text style={{ color: "#fff", fontSize: 13 }}>and </Text>
+        <Text style={{ color: "#fff", fontSize: scale(13) }}>and </Text>
         <TouchableOpacity>
-          <Text style={{ color: "#fed130", fontSize: 13 }}>privacy policy</Text>
+          <Text style={{ color: "#fed130", fontSize: scale(13) }}>privacy policy</Text>
         </TouchableOpacity>
       </View>
       <Text
-        style={{ fontSize: 11, textAlign: "center", color: "#fff", margin: 5 }}
+        style={{ fontSize: scale(11), textAlign: "center", color: "#fff", margin: scale(5) }}
       >
         or simply sign up with
       </Text>
       <TouchableOpacity style={styles.signUpButton2}>
-        <icons.AntDesign name="apple1" size={16} color="#fff" />
-        <Text style={{ color: "#fff" }}>Sign Up with Apple</Text>
+        <icons.AntDesign name="apple1" size={scale(16)} color="#fff" />
+        <Text style={{ color: "#fff" }}> Sign Up with Apple</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.signUpButton3}>
-        <icons.AntDesign name="google" size={16} color="#fed130" />
-        <Text>Sign Up with Google</Text>
+        <icons.AntDesign name="google" size={scale(16)} color="#fed130" />
+        <Text> Sign Up with Google</Text>
       </TouchableOpacity>
       <View
         style={{
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: 15,
+          marginTop: verticalScale(15),
         }}
       >
         <Text style={{ color: "#fff" }}>Already have an account? </Text>
@@ -111,27 +112,27 @@ export default function SignUp({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#26272b",
   },
   topBar: {
-    marginTop: 30,
-    marginHorizontal: 20,
+    marginTop: "30@vs",
+    marginHorizontal: "20@s",
     flexDirection: "row",
     alignItems: "center",
   },
   topBarText: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: "20@s",
     fontWeight: "bold",
-    paddingLeft: 10,
+    paddingLeft: "10@s",
   },
   logoArea: {
     flexDirection: "row",
-    marginVertical: 40,
-    marginHorizontal: 20,
+    marginVertical: "25@vs",
+    marginHorizontal: "20@s",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -140,110 +141,111 @@ const styles = StyleSheet.create({
     height: "150%",
   },
   logoAreaText: {
-    fontSize: 27,
+    fontSize: "27@s",
     color: "#fff",
     fontWeight: "bold",
   },
   text1: {
     color: "#fff",
-    marginHorizontal: 20,
+    marginHorizontal: "22@s",
     textAlign: "center",
   },
   inputarea1: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 0.5,
-    marginHorizontal: 20,
+    borderWidth: "1@s",
+    marginHorizontal: "20@s",
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
     borderRightColor: "#26272b",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: "10@vs",
   },
   inputarea2: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 0.5,
-    marginHorizontal: 20,
+    borderWidth: "1@s",
+    marginHorizontal: "20@s",
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
     borderRightColor: "#26272b",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: "10@vs",
   },
   inputarea3: {
     flexDirection: "row",
     borderBottomColor: "gray",
-    borderWidth: 0.5,
-    marginHorizontal: 20,
+    borderWidth: "1@s",
+    marginHorizontal: "20@s",
     borderTopColor: "#26272b",
     borderLeftColor: "#26272b",
     borderRightColor: "#26272b",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: "10@vs",
   },
   input1: {
     flex:5,
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
-    minWidth: 100,
+    minWidth: "100@s",
   },
   inputicon1: {
     flex: 1,
-    marginLeft: 100,
+    marginLeft: "100@s",
   },
   input2: {
     flex:5,
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
-    minWidth: 100,
+    minWidth: "100@s",
   },
   inputicon2: {
     flex: 1,
-    marginLeft: 100,
+    marginLeft: "100@s",
   },
   input3: {
     flex:5,
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
-    minWidth: 100,
+    minWidth: "100@s",
   },
   inputicon3: {
     flex: 1,
-    paddingLeft: 100,
+    paddingLeft: "100@s",
   },
   signUpButton1: {
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#fed130",
-    margin: 20,
-    borderRadius: 5,
+    margin: "20@s",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },
   text2: {
     flexDirection: "row",
-    marginHorizontal: 25,
+    marginHorizontal: "15@s",
+    alignSelf: 'center',
   },
   signUpButton2: {
     flexDirection: "row",
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#000",
-    marginHorizontal: 20,
-    marginTop: 10,
-    borderRadius: 5,
+    marginHorizontal: "20@s",
+    marginTop: "10@vs",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },
   signUpButton3: {
     flexDirection: "row",
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#fff",
-    marginHorizontal: 20,
-    marginTop: 10,
-    borderRadius: 5,
+    marginHorizontal: "20@s",
+    marginTop: "10@vs",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },

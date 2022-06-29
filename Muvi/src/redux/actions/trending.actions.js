@@ -13,7 +13,6 @@ export const fetchTrendingMovies = () => {
         })
         .then((responseData) => {
             const {data} = responseData;
-            console.log(data);
             dispatch({
                 type: "TRENDING_MOVIES_FETCHING_DONE",
                 payload: data.results,

@@ -1,6 +1,7 @@
 import React from "react";
-import {Text, View, StyleSheet, ScrollView, Image, TouchableOpacity} from "react-native";
+import {Text, View, Image, TouchableOpacity} from "react-native";
 import * as icons from "@expo/vector-icons";
+import {ScaledSheet} from 'react-native-size-matters'
 
 export default function PopularComponent (props) {
 
@@ -20,37 +21,37 @@ export default function PopularComponent (props) {
 
 };
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     image: {
-        borderRadius: 6,
-        height: 80,
-        width: 110,
-        marginLeft: 15,
+        borderRadius: "6@s",
+        height: "80@vs",
+        width: "90@s",
+        marginLeft: "15@s",
     },
     title: {
         color: "#fff",
-        fontSize: 13,
-        marginTop: 10,
-        maxWidth: 100,
-        marginLeft: 17,
+        fontSize: "12@s",
+        marginTop: "10@vs",
+        maxWidth: "90@s",
+        marginLeft: "14@s",
     },
     details: {
         color: "#797a7a",
-        fontSize: 10,
-        maxWidth: 100,
-        marginLeft: 10,
-        marginTop: -5,
+        fontSize: "10@s",
+        maxWidth: "90@s",
+        marginLeft: "6@s",
+        marginTop: "-5@vs",
     },
     description: {
         flexDirection: 'row',
-        marginLeft: 10,
-        marginTop: 5,
+        marginLeft: "10@s",
+        marginTop: "5@vs",
     },
     icon: {
         position: "absolute",
-        width: 40,
-        height: 40,
-        top: 55,
-        left: 20,
+        width: "40@s",
+        height: "40@vs",
+        top: "55@vs",
+        left: "20@s",
     },
 });

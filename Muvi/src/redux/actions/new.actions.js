@@ -13,7 +13,6 @@ export const fetchNewMovies = () => {
         })
         .then((response) => {
             const {data} = response;
-            console.log(response);
             dispatch({
                 type: "NEW_MOVIES_FETCHING_DONE",
                 payload: data.results,

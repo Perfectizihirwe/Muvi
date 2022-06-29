@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Image,
   ScrollView,
   View,
@@ -7,6 +6,7 @@ import {
   StatusBar,
 } from "react-native";
 import BottomTabView from "../../navigation/home.navigation";
+import { ScaledSheet } from "react-native-size-matters";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -21,32 +21,32 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.logoAreaText}>Muvi</Text>
         </View>
       </View>
-      <BottomTabView style={{backgroundColor: 'red'}}/>
+      <BottomTabView/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
   },
   topbar: {
     backgroundColor: "#202123",
-    minHeight: 40,
+    minHeight: "40@vs",
   },
   logoArea: {
     flexDirection: "row",
-    marginVertical: 20,
-    marginHorizontal: 0,
+    marginVertical: "20@s",
+    marginHorizontal: "0@s",
     alignItems: "center",
     justifyContent: "center",
   },
   logoAreaImage: {
-    width: "20%",
-    height: "150%",
+    width: "90@s",
+    height: "60@vs",
   },
   logoAreaText: {
-    fontSize: 35,
+    fontSize: "30@s",
     color: "#fff",
     fontWeight: "bold",
   },

@@ -3,12 +3,12 @@ import {scale, verticalScale} from "react-native-size-matters"
 import { LinearGradient } from "expo-linear-gradient";
 
 
-export default function TrendingSkeleton () {
+export default function SeriesSkeleton () {
     return(
         <SkeletonPlaceholder
                 backgroundColor={"#fed130"}
                 highlightColor={"#000"}>
-                <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+                <SkeletonPlaceholder.Item flexDirection="column" alignItems="center">
                     <SkeletonPlaceholder.Item
                       marginLeft={scale(15)}
                       marginTop={verticalScale(15)}

@@ -31,7 +31,7 @@ export default function MainNavigation () {
             },
             tabBarActiveTintColor: "#fed130",
             tabBarInactiveTintColor: "white",
-            tabBarStyle: { backgroundColor: "#202123"},
+            tabBarStyle: { backgroundColor: "#202123", borderTopWidth:0},
             tabBarShowLabel: false,
           })}
           >

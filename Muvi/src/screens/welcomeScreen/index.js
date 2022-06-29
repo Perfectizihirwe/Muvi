@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import * as icons from "@expo/vector-icons";
+import { ScaledSheet, scale, verticalScale } from "react-native-size-matters";
 
 export default function WelcomeScreen({ navigation }) {
   return (
@@ -22,14 +23,16 @@ export default function WelcomeScreen({ navigation }) {
           />
           <Text style={styles.logoAreaText}>Muvi</Text>
         </View>
-        <Text style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: '#fff', marginTop: 250}}>Welcome To Muvi</Text>
-        <Text style={{fontSize: 15, textAlign: 'center', color: '#fff', marginHorizontal: 15}}>Look back and reflect on your memories and growth over time.</Text>
+        <Text style={styles.text1}>Welcome To Muvi</Text>
+        <Text style={styles.text2}>
+          Look back and reflect on your memories and growth over time.
+        </Text>
         <TouchableOpacity style={styles.signUpButton2}>
-          <icons.AntDesign name="apple1" size={16} color="#fff" />
+          <icons.AntDesign name="apple1" size={scale(16)} color="#fff" />
           <Text style={{ color: "#fff" }}>Sign Up with Apple</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.signUpButton3}>
-          <icons.AntDesign name="google" size={16} color="#fed130" />
+          <icons.AntDesign name="google" size={scale(16)} color="#fed130" />
           <Text>Sign Up with Google</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -43,7 +46,7 @@ export default function WelcomeScreen({ navigation }) {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: 15,
+            marginTop: verticalScale(15),
           }}
         >
           <Text style={{ color: "#fff" }}>Already have an account? </Text>
@@ -56,7 +59,7 @@ export default function WelcomeScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     width: "100%",
@@ -64,8 +67,8 @@ const styles = StyleSheet.create({
   },
   logoArea: {
     flexDirection: "row",
-    marginVertical: 40,
-    marginHorizontal: 20,
+    marginVertical: "40@vs",
+    marginHorizontal: "20@s",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -74,35 +77,48 @@ const styles = StyleSheet.create({
     height: "150%",
   },
   logoAreaText: {
-    fontSize: 27,
+    fontSize: "27@s",
     color: "#fff",
     fontWeight: "bold",
   },
+  text1: {
+    fontSize: "20@s",
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#fff",
+    marginTop: "200@vs",
+  },
+  text2: {
+    fontSize: "15@s",
+    textAlign: "center",
+    color: "#fff",
+    marginHorizontal: "15@s",
+  },
   signUpButton1: {
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#fed130",
-    margin: 20,
-    borderRadius: 5,
+    margin: "20@s",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },
   signUpButton2: {
     flexDirection: "row",
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#000",
-    marginHorizontal: 20,
-    marginTop: 10,
-    borderRadius: 5,
+    marginHorizontal: "20@s",
+    marginTop: "10@vs",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },
   signUpButton3: {
     flexDirection: "row",
-    height: 40,
+    height: "40@vs",
     backgroundColor: "#fff",
-    marginHorizontal: 20,
-    marginTop: 10,
-    borderRadius: 5,
+    marginHorizontal: "20@s",
+    marginTop: "10@vs",
+    borderRadius: "5@s",
     justifyContent: "center",
     alignItems: "center",
   },

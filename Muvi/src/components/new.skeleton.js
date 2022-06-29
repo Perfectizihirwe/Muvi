@@ -1,8 +1,9 @@
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function NewSkeleton () {
     return(
-        <SkeletonPlaceholder speed={10}
+        <SkeletonPlaceholder 
             backgroundColor={"#fed130"}>
                 <SkeletonPlaceholder.Item flexDirection="row" alignItems="center" >
         <SkeletonPlaceholder.Item flexDirection='column' alignItems="center" marginHorizontal={15} marginTop={20}>
