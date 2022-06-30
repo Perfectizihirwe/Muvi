@@ -51,7 +51,7 @@ export default function FeaturedScreen(props) {
                 trendTitle={movies.title}
                 trendImage={movies.backdrop_path}
                 trendDate={movies.release_date}
-                navigation={()=>props.navigation.navigate("DetailScreen")}
+                navigation={()=>{props.navigation.navigate("DetailScreen",movies)}}
               />
             );
           })}
@@ -70,6 +70,7 @@ export default function FeaturedScreen(props) {
                 popTitle={trendMovies.title}
                 popImage={trendMovies.backdrop_path}
                 popDetails={trendMovies.overview}
+                navigation={()=>{props.navigation.navigate("DetailScreen",trendMovies)}}
               />
             );
           })}

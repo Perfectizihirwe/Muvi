@@ -1,15 +1,16 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import {Text, View, StyleSheet, ScrollView, ImageBackground, TouchableOpacity} from "react-native";
 import * as icons from "@expo/vector-icons";
 import { ScaledSheet } from "react-native-size-matters";
+import { getSingleDetails } from "../redux/actions";
+import {connect} from "react-redux"
 
 
-
-const TrendingComponent = (props) => {
+const TrendingComponent = (props,navigation) => {
 
     const { trendImage, trendTitle, trendDate} = props;
- 
-    
+   
+
     return( 
             <TouchableOpacity onPress={props.navigation}>
             <ImageBackground imageStyle={{ borderRadius: 16}} style={styles.image} source={{ uri:`https://image.tmdb.org/t/p/w500/${trendImage}`}}>
@@ -24,7 +25,7 @@ const TrendingComponent = (props) => {
 
 };
 
-export default TrendingComponent;
+export default connect(null,{getSingleDetails:getSingleDetails}) (TrendingComponent);
 
 const styles = ScaledSheet.create({
     image: {

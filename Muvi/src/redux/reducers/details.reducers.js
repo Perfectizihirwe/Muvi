@@ -3,7 +3,7 @@ const initialState = {
   detail_loading: false,
 };
 
-export function idReducer(state = initialState, { type, payload }) {
+export default (state = initialState, { type, payload }) =>{
   if (type === "GET MOVIE DETAIL") {
     return {
       ...state,

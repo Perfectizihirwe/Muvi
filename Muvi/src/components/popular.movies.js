@@ -3,13 +3,13 @@ import {Text, View, Image, TouchableOpacity} from "react-native";
 import * as icons from "@expo/vector-icons";
 import {ScaledSheet} from 'react-native-size-matters'
 
-export default function PopularComponent (props) {
+export default function PopularComponent (props,navigation) {
 
     const { popImage, popTitle, popDetails} = props;
 
     
     return( 
-            <TouchableOpacity >
+            <TouchableOpacity onPress={props.navigation}>
             <Image style={styles.image} source={{ uri:`https://image.tmdb.org/t/p/w500/${popImage}`}} />
             {/* <icons.MaterialIcons style={styles.icon} name="hd" size={24} color="#fed130" /> */}
             <Text style={styles.title} numberOfLines={1}>{popTitle}</Text>

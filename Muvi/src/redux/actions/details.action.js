@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const UpdateId = (id) => (dispatch) => {
+export const getSingleDetails = (id) => (dispatch) => {
   dispatch({
     type: "GET MOVIE DETAIL",
   });
@@ -11,11 +11,9 @@ export const UpdateId = (id) => (dispatch) => {
       uri: `https://api.themoviedb.org/3/movie/${id}?api_key=d9cf23cf23f14a29b69eccb99afeaeff`,
     },
   }).then((responseData) => {
-    const { data } = responseData;
-    console.log(data)
     dispatch({
       type: "GET MOVIE DETAIL DONE",
-      paload: data,
+      paload: responseData,
     })
   })
   .catch((error) => {

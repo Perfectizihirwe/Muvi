@@ -13,6 +13,7 @@ export default function BottomTabView () {
         tabBarStyle: { backgroundColor: "#202123",},
         tabBarInactiveTintColor: "#fff",
         tabBarActiveTintColor: "#fed130",
+        swipeEnabled: false,
         tabBarLabelStyle: {fontSize: 10, fontWeight: '700' },
         tabBarIndicatorStyle: {backgroundColor: "#fed130", width: 20, marginHorizontal: 40, height: 5, borderRadius: 20},
         })}>
