@@ -1,92 +1,31 @@
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
-import {scale, verticalScale} from "react-native-size-matters"
-import { LinearGradient } from "expo-linear-gradient";
+import ContentLoader, { Rect } from "react-content-loader/native";
 
-export default function PopularSkeleton() {
+export default function PopularSkeleton(props) {
   return (
-    <SkeletonPlaceholder backgroundColor={"#fed130"}>
-      <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
-        <SkeletonPlaceholder.Item
-          flexDirection="column"
-          alignItems="center"
-          marginHorizontal={scale(10)}
-          marginTop={verticalScale(20)}
-        >
-          <SkeletonPlaceholder.Item width={90} height={80} borderRadius={6} />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(10)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(10)}
-          />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(20)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(5)}
-          />
-        </SkeletonPlaceholder.Item>
-        <SkeletonPlaceholder.Item
-          flexDirection="column"
-          alignItems="center"
-          marginRight={scale(10)}
-          marginTop={verticalScale(20)}
-        >
-          <SkeletonPlaceholder.Item width={90} height={80} borderRadius={6} />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(10)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(10)}
-          />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(20)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(5)}
-          />
-        </SkeletonPlaceholder.Item>
-        <SkeletonPlaceholder.Item
-          flexDirection="column"
-          alignItems="center"
-          marginRight={scale(10)}
-          marginTop={verticalScale(20)}
-        >
-          <SkeletonPlaceholder.Item width={90} height={80} borderRadius={6} />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(10)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(10)}
-          />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(20)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(5)}
-          />
-        </SkeletonPlaceholder.Item>
-        <SkeletonPlaceholder.Item
-          flexDirection="column"
-          alignItems="center"
-          marginRight={scale(10)}
-          marginTop={verticalScale(20)}
-        >
-          <SkeletonPlaceholder.Item width={90} height={80} borderRadius={6} />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(10)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(10)}
-          />
-          <SkeletonPlaceholder.Item
-            width={scale(80)}
-            height={verticalScale(20)}
-            borderRadius={scale(2)}
-            marginTop={verticalScale(5)}
-          />
-        </SkeletonPlaceholder.Item>
-      </SkeletonPlaceholder.Item>
-    </SkeletonPlaceholder>
+    <ContentLoader
+      width={400}
+      height={150}
+      viewBox="0 0 400 150"
+      backgroundColor="#fed130"
+      foregroundColor="#000"
+      {...props}
+    >
+      <Rect x="15" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="15" y="110" rx="5" ry="5" width="100" height="20" />
+      <Rect x="15" y="140" rx="5" ry="5" width="100" height="20" />
+
+
+      <Rect x="135" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="135" y="110" rx="5" ry="5" width="100" height="20" />
+      <Rect x="135" y="140" rx="5" ry="5" width="100" height="20" />
+
+      <Rect x="255" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="255" y="110" rx="5" ry="5" width="100" height="20" />
+      <Rect x="255" y="140" rx="5" ry="5" width="100" height="20" />
+
+      <Rect x="380" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="380" y="110" rx="5" ry="5" width="100" height="20" />
+      <Rect x="380" y="140" rx="5" ry="5" width="100" height="20" />
+    </ContentLoader>
   );
 }

@@ -8,7 +8,7 @@
 
          axios({
              method: "get",
-             url: "https://api.themoviedb.org/3/tv/on_the_air?api_key=d9cf23cf23f14a29b69eccb99afeaeff"
+             url: "https://api.themoviedb.org/3/tv/popular?api_key=d9cf23cf23f14a29b69eccb99afeaeff&language=en-US&page=1"
          })
          .then((responseData) => {
              const {data} = responseData;

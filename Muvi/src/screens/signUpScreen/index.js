@@ -9,14 +9,53 @@ import {
 } from "react-native";
 import * as icons from "@expo/vector-icons";
 import { ScaledSheet, scale, verticalScale } from "react-native-size-matters";
+import { useState } from "react";
+import { auth } from "../../../firebase/firebase";
 
 export default function SignUp({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [signUpComplete, setSignUpComplete] = useState(false);
+
+  // function validateEmail(email) {
+  //   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //   if (email.match(regexEmail)) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  const handleSignUp = () => {
+    if (email === "" && password === "" && confirmPassword === "") {
+      alert("Fill all fields");
+    } else if (password !== confirmPassword) {
+      alert("Passwords don't match");
+    } else {
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredentials) => {
+          const user = userCredentials.user;
+          console.log(user.email);
+          navigation.navigate("Login");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    }
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={"#26272b"} hidden={false} />
       <View style={styles.topBar}>
-        <TouchableOpacity onPress={() => navigation.navigate("Welcome")}>
-          <icons.Ionicons name="arrow-back-outline" size={scale(26)} color="#fed130" />
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <icons.Ionicons
+            name="arrow-back-outline"
+            size={scale(26)}
+            color="#fed130"
+          />
         </TouchableOpacity>
         <Text style={styles.topBarText}>Register</Text>
       </View>
@@ -35,6 +74,8 @@ export default function SignUp({ navigation }) {
           style={styles.input1}
           placeholder="Email Address"
           placeholderTextColor={"gray"}
+          value={email}
+          onChangeText={(text) => setEmail(text)}
         />
         <TouchableOpacity style={styles.inputicon1}>
           <icons.MaterialCommunityIcons
@@ -49,6 +90,9 @@ export default function SignUp({ navigation }) {
           style={styles.input2}
           placeholder="Password"
           placeholderTextColor={"gray"}
+          secureTextEntry={true}
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
         <TouchableOpacity style={styles.inputicon2}>
           <icons.Feather name="lock" size={scale(20)} color="#fed130" />
@@ -59,15 +103,15 @@ export default function SignUp({ navigation }) {
           style={styles.input3}
           placeholder="Confirm Password"
           placeholderTextColor={"gray"}
+          secureTextEntry={true}
+          value={confirmPassword}
+          onChangeText={(text) => setConfirmPassword(text)}
         />
         <TouchableOpacity style={styles.inputicon3}>
           <icons.Feather name="lock" size={scale(20)} color="#fed130" />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("MainNavigation")}
-        style={styles.signUpButton1}
-      >
+      <TouchableOpacity onPress={handleSignUp} style={styles.signUpButton1}>
         <Text>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.text2}>
@@ -75,15 +119,25 @@ export default function SignUp({ navigation }) {
           By signing up I accept
         </Text>
         <TouchableOpacity>
-          <Text style={{ color: "#fed130", fontSize: scale(13) }}> terms of use </Text>
+          <Text style={{ color: "#fed130", fontSize: scale(13) }}>
+            {" "}
+            terms of use{" "}
+          </Text>
         </TouchableOpacity>
         <Text style={{ color: "#fff", fontSize: scale(13) }}>and </Text>
         <TouchableOpacity>
-          <Text style={{ color: "#fed130", fontSize: scale(13) }}>privacy policy</Text>
+          <Text style={{ color: "#fed130", fontSize: scale(13) }}>
+            privacy policy
+          </Text>
         </TouchableOpacity>
       </View>
       <Text
-        style={{ fontSize: scale(11), textAlign: "center", color: "#fff", margin: scale(5) }}
+        style={{
+          fontSize: scale(11),
+          textAlign: "center",
+          color: "#fff",
+          margin: scale(5),
+        }}
       >
         or simply sign up with
       </Text>
@@ -104,7 +158,9 @@ export default function SignUp({ navigation }) {
         }}
       >
         <Text style={{ color: "#fff" }}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Login", { email, password })}
+        >
           <Text style={{ color: "#fed130" }}> Sign in</Text>
         </TouchableOpacity>
       </View>
@@ -184,7 +240,7 @@ const styles = ScaledSheet.create({
     marginTop: "10@vs",
   },
   input1: {
-    flex:5,
+    flex: 5,
     height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
@@ -195,7 +251,7 @@ const styles = ScaledSheet.create({
     marginLeft: "100@s",
   },
   input2: {
-    flex:5,
+    flex: 5,
     height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
@@ -206,7 +262,7 @@ const styles = ScaledSheet.create({
     marginLeft: "100@s",
   },
   input3: {
-    flex:5,
+    flex: 5,
     height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
@@ -227,7 +283,7 @@ const styles = ScaledSheet.create({
   text2: {
     flexDirection: "row",
     marginHorizontal: "15@s",
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   signUpButton2: {
     flexDirection: "row",

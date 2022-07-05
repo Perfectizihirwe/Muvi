@@ -37,7 +37,7 @@ export default function FeaturedScreen(props) {
     >
       <View style={styles.trendingcontainer}>
         <Text style={styles.text1}>Trending this week</Text>
-        {/* {trending_loading && <TrendingSkeleton />} */}
+        {trending_loading && <TrendingSkeleton />}
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -57,7 +57,7 @@ export default function FeaturedScreen(props) {
           })}
         </ScrollView>
         <Text style={styles.text2}>Popular Movies</Text>
-        {/* {popular_loading && <PopularSkeleton />} */}
+        {popular_loading && <PopularSkeleton />}
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -68,7 +68,7 @@ export default function FeaturedScreen(props) {
               <PopularComponent
                 key={trendMovies.id}
                 popTitle={trendMovies.title}
-                popImage={trendMovies.backdrop_path}
+                popImage={trendMovies.poster_path}
                 popDetails={trendMovies.overview}
                 navigation={()=>{props.navigation.navigate("DetailScreen",trendMovies)}}
               />
@@ -76,15 +76,16 @@ export default function FeaturedScreen(props) {
           })}
         </ScrollView>
         <Text style={styles.text3}>New on Cinemas</Text>
-        {/* {new_loading && <NewSkeleton/>} */}
+        {new_loading && <NewSkeleton/>}
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {new_movies?.reverse().map((new_movies, index) => {
+          {new_movies?.map((new_movies, index) => {
             return (
               <NewMoviesComponent
                 key={new_movies.id}
-                newTitle={new_movies.title}
+                newTitle={new_movies.title || new_movies.name}
                 newImage={new_movies.poster_path}
                 newDate={new_movies.release_date}
+                navigation={()=>{props.navigation.navigate("DetailScreen",new_movies)}}
               />
             );
           })}

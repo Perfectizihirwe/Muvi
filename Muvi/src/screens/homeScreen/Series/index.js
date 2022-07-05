@@ -6,7 +6,7 @@ import SeriesComponent from "../../../components/series.component";
 import { useDispatch, useSelector } from "react-redux";
 import SeriesSkeleton from "../../../components/series.skeleton";
 
-export default function SeriesScreen() {
+export default function SeriesScreen(props) {
   const dispatch = useDispatch();
   const { latest_series, series_loading } = useSelector((state) => state.LatestSeries);
   useEffect(() => {
@@ -26,15 +26,16 @@ export default function SeriesScreen() {
       >
         Trending series
       </Text>
-      {/* {series_loading && <SeriesSkeleton />} */}
+      {series_loading && <SeriesSkeleton />}
       <ScrollView vertical showsHorizontalScrollIndicator={false}>
         {latest_series?.map((series, index) => {
           return (
             <SeriesComponent
               key={index}
-              seriesImage={series.poster_path}
+              seriesImage={series.backdrop_path}
               seriesTitle={series.original_name}
               seriesDate={series.overview}
+              navigation={()=>{props.navigation.navigate("DetailScreen", series)}}
             />
           );
         })}

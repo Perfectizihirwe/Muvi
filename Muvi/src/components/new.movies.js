@@ -2,13 +2,13 @@ import React from "react";
 import {Text, View, StyleSheet, ScrollView, Image, TouchableOpacity} from "react-native";
 import * as icons from "@expo/vector-icons";
 
-export default function NewMoviesComponent (props) {
+export default function NewMoviesComponent (props,navigation) {
 
     const { newImage, newTitle, newDate} = props;
 
     
     return( 
-            <TouchableOpacity >
+            <TouchableOpacity onPress={props.navigation}>
             <Image style={styles.image} source={{ uri:`https://image.tmdb.org/t/p/w500/${newImage}`}} />
             <icons.MaterialIcons style={styles.icon} name="hd" size={24} color="#fed130" />
             <Text style={styles.title} numberOfLines={1}>{newTitle}</Text>

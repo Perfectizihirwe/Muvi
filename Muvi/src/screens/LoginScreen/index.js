@@ -8,14 +8,41 @@ import {
 } from "react-native";
 import * as icons from "@expo/vector-icons";
 import { ScaledSheet } from "react-native-size-matters";
-
+import { auth } from "../../../firebase/firebase";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Login({ navigation }) {
+  // const { email, password, setEmail, setPassword } = route.params;
+  const [email, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  // useEffect(()=>{
+  //   const unsubscribe=auth.onAuthStateChanged(user=>{
+  //     if(user)
+  //       navigation.navigate("MainNavigation")
+  //   })
+  //   return unsubscribe
+  // },[])
+
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, loginPassword)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log(`Login of ${user.email} successful`);
+        navigation.navigate("MainNavigation");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={"#26272b"} hidden={false} />
       <View style={styles.topBar}>
-        <TouchableOpacity onPress={() => navigation.navigate("Welcome")}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <icons.Ionicons name="arrow-back-outline" size={26} color="#fed130" />
         </TouchableOpacity>
         <Text style={styles.topBarText}>Login</Text>
@@ -33,8 +60,10 @@ export default function Login({ navigation }) {
       <View style={styles.inputarea1}>
         <TextInput
           style={styles.input1}
-          placeholder="Email Address"
+          placeholder={"Email Address"}
           placeholderTextColor={"gray"}
+          value={email}
+          onChangeText={(text) => setLoginEmail(text)}
         />
         <TouchableOpacity style={styles.inputicon1}>
           <icons.MaterialCommunityIcons
@@ -49,21 +78,24 @@ export default function Login({ navigation }) {
           style={styles.input2}
           placeholder="Password"
           placeholderTextColor={"gray"}
+          value={loginPassword}
+          onChangeText={(text) => setLoginPassword(text)}
+          secureTextEntry={true}
         />
         <TouchableOpacity style={styles.inputicon2}>
           <icons.Feather name="lock" size={20} color="#fed130" />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={{ marginLeft:225, marginVertical: 20}}>
-          <Text style={{ color: "#fed130", fontSize: 13 }}> Forgot Password? </Text>
-        </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("MainNavigation")}
-        style={styles.signUpButton1}
-      >
-        <Text>Get Started</Text></TouchableOpacity>
-        
-      
+      <TouchableOpacity style={{ marginLeft: 225, marginVertical: 20 }}>
+        <Text style={{ color: "#fed130", fontSize: 13 }}>
+          {" "}
+          Forgot Password?{" "}
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleLogin} style={styles.signUpButton1}>
+        <Text>Get Started</Text>
+      </TouchableOpacity>
+
       <Text
         style={{ fontSize: 11, textAlign: "center", color: "#fff", margin: 5 }}
       >
@@ -156,7 +188,7 @@ const styles = ScaledSheet.create({
   },
 
   input1: {
-    flex:5,
+    flex: 5,
     height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
@@ -167,7 +199,7 @@ const styles = ScaledSheet.create({
     marginLeft: "100@s",
   },
   input2: {
-    flex:5,
+    flex: 5,
     height: "40@vs",
     backgroundColor: "#26272b",
     color: "#fff",
