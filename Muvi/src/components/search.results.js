@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import {
   Text,
   View,
@@ -11,22 +10,21 @@ import {
 import * as icons from "@expo/vector-icons";
 import { ScaledSheet } from "react-native-size-matters";
 
-export default function SeriesComponent(props, navigation) {
-  const { seriesImage, seriesTitle, seriesDate } = props;
-  const { series_loading } = useSelector((state) => state.LatestSeries);
+export default function SearchComponent(props) {
+  const { searchImage, searchTitle, searchDate } = props;
 
   return (
     <TouchableOpacity onPress={props.navigation}>
       <ImageBackground
         imageStyle={{ borderRadius: 16 }}
         style={styles.image}
-        source={{ uri: `https://image.tmdb.org/t/p/w500${seriesImage}`}}
+        source={{ uri: `https://image.tmdb.org/t/p/w500${searchImage}`}}
       >
-        <Text style={styles.title}>{seriesTitle}</Text>
+        <Text style={styles.title}>{searchTitle}</Text>
         <View style={styles.description}>
           <icons.MaterialIcons name="hd" size={24} color="#fed130" />
           <Text style={styles.date} numberOfLines={1}>
-            {seriesDate}
+            {searchDate}
           </Text>
         </View>
       </ImageBackground>

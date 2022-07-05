@@ -9,7 +9,7 @@ export const fetchTrendingMovies = () => {
 
         axios({
             method: "get",
-            url: "https://api.themoviedb.org/3/trending/all/week?api_key=d9cf23cf23f14a29b69eccb99afeaeff"
+            url: "https://api.themoviedb.org/3/trending/all/week?api_key=d9cf23cf23f14a29b69eccb99afeaeff&language=en-US&page=2"
         })
         .then((responseData) => {
             const {data} = responseData;

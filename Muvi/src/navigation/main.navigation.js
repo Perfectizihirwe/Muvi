@@ -33,6 +33,7 @@ export default function MainNavigation () {
             tabBarInactiveTintColor: "white",
             tabBarStyle: { backgroundColor: "#202123", borderTopWidth:0},
             tabBarShowLabel: false,
+            tabBarHideOnKeyboard: true,
           })}
           >
             <Tab.Screen 

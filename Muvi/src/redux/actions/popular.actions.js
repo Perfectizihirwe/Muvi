@@ -9,7 +9,7 @@ export const fetchPopularMovies = () => {
 
         axios({
             method: "get",
-            url: "https://api.themoviedb.org/3/movie/top_rated?api_key=d9cf23cf23f14a29b69eccb99afeaeff"
+            url: "https://api.themoviedb.org/3/movie/upcoming?api_key=d9cf23cf23f14a29b69eccb99afeaeff&language=en-US"
         })
         .then((responseData) => {
             const {data} = responseData;

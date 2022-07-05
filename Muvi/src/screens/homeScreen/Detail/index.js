@@ -8,14 +8,40 @@ import {
   TouchableOpacity,
   Button,
 } from "react-native";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Image } from "react-native";
 import * as icons from "@expo/vector-icons";
-//   import { UpdateId } from "../../../redux/actions";
-//   import { connect } from "react-redux";
+import { WebView } from "react-native-webview";
+import { fetchVideoId } from "../../../redux/actions/video.id.actions";
+import Video from "../../../components/video.player";
 
 export default function DetailScreen({ route, navigation }) {
-  const { original_title, backdrop_path, poster_path,overview,release_date } = route.params;
+  const {
+    id,
+    original_title,
+    backdrop_path,
+    poster_path,
+    overview,
+    release_date,
+  } = route.params;
+
+  const [playing, setPlaying] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchVideoId(id));
+  }, []);
+
+  const { video_id, error } = useSelector((state) => state.VideoId);
+
+  const youtubeKey = video_id?.filter(
+    (video) => video.name === "Official Trailer"
+  );
+
+  console.log(youtubeKey);
+  console.log("Failed");
 
   return (
     <ScrollView>
@@ -33,15 +59,32 @@ export default function DetailScreen({ route, navigation }) {
           blurRadius={3}
         />
         <TouchableOpacity
-          onPress={() => navigation.navigate("Home")}
-          style={{ position: "absolute", top: 20, left: 20 }}
+          onPress={() => navigation.goBack()}
+          style={{ position: "absolute", top: 5, left: 15 }}
         >
           <icons.Ionicons name="arrow-back-outline" size={26} color="#fed130" />
         </TouchableOpacity>
-        <Image
-          source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
-          style={{ position: "absolute", width: 150, height: 250, top: 80 }}
-        />
+
+        {playing ? (
+          <View
+            style={{
+              position: "absolute",
+              top: 40,
+              width: "100%",
+              height: 290,
+            }}
+          >
+            {youtubeKey?.map((video, index) => {
+              return <Video key={index} movie={video.key} />;
+            })}
+          </View>
+        ) : (
+          <Image
+            source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
+            style={{ position: "absolute", width: 150, height: 250, top: 80 }}
+          />
+        )}
+
         <Text
           style={{
             color: "#fff",
@@ -57,6 +100,7 @@ export default function DetailScreen({ route, navigation }) {
           Adventure, Romantic, Thriller
         </Text>
         <TouchableOpacity
+          onPress={() => setPlaying(!playing)}
           style={{
             flexDirection: "row",
             height: 40,
@@ -69,8 +113,14 @@ export default function DetailScreen({ route, navigation }) {
             alignItems: "center",
           }}
         >
-          <icons.Feather name="play" size={16} color="black" />
-          <Text style={{ paddingHorizontal: 5 }}>Play</Text>
+          {playing ? (
+            <icons.FontAwesome5 name="stop-circle" size={16} color="black" />
+          ) : (
+            <icons.Feather name="play" size={16} color="black" />
+          )}
+          <Text style={{ paddingHorizontal: 5 }}>
+            {playing ? "Stop" : "Play"}
+          </Text>
         </TouchableOpacity>
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
@@ -112,9 +162,7 @@ export default function DetailScreen({ route, navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-        <Text style={{ color: "#fff", marginHorizontal: 35 }}>
-          {overview}
-        </Text>
+        <Text style={{ color: "#fff", marginHorizontal: 30 }}>{overview}</Text>
         <Text
           style={{ color: "grey", marginHorizontal: 35, marginVertical: 10 }}
         >

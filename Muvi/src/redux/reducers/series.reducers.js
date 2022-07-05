@@ -14,7 +14,7 @@ export default function seriesReducers (state = initialState, action) {
             return {
             ...state,
             latest_series: action.payload,
-            series_loading: null,
+            series_loading: false,
             }    
         case "SERIES_FETCHING_FAILED":
             return {

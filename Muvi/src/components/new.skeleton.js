@@ -1,32 +1,26 @@
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
-import { LinearGradient } from "expo-linear-gradient";
+import ContentLoader, { Rect } from "react-content-loader/native";
 
-export default function NewSkeleton () {
-    return(
-        <SkeletonPlaceholder 
-            backgroundColor={"#fed130"}>
-                <SkeletonPlaceholder.Item flexDirection="row" alignItems="center" >
-        <SkeletonPlaceholder.Item flexDirection='column' alignItems="center" marginHorizontal={15} marginTop={20}>
-            <SkeletonPlaceholder.Item width={110} height={80} borderRadius={6} />
-            <SkeletonPlaceholder.Item width={110} height={10} borderRadius={2} marginTop={10}/>
-            <SkeletonPlaceholder.Item width={110} height={15} borderRadius={2} marginTop={5}/>
-        </SkeletonPlaceholder.Item>
-        <SkeletonPlaceholder.Item flexDirection='column' alignItems="center" marginRight={15} marginTop={20}>
-            <SkeletonPlaceholder.Item width={110} height={80} borderRadius={6} />
-            <SkeletonPlaceholder.Item width={110} height={10} borderRadius={2} marginTop={10}/>
-            <SkeletonPlaceholder.Item width={110} height={15} borderRadius={2} marginTop={5}/>
-        </SkeletonPlaceholder.Item>
-        <SkeletonPlaceholder.Item flexDirection='column' alignItems="center" marginRight={15} marginTop={20}>
-            <SkeletonPlaceholder.Item width={110} height={80} borderRadius={6} />
-            <SkeletonPlaceholder.Item width={110} height={10} borderRadius={2} marginTop={10}/>
-            <SkeletonPlaceholder.Item width={110} height={15} borderRadius={2} marginTop={5}/>
-        </SkeletonPlaceholder.Item>
-        <SkeletonPlaceholder.Item flexDirection='column' alignItems="center" marginRight={15} marginTop={20}>
-            <SkeletonPlaceholder.Item width={110} height={80} borderRadius={6} />
-            <SkeletonPlaceholder.Item width={110} height={10} borderRadius={2} marginTop={10}/>
-            <SkeletonPlaceholder.Item width={110} height={15} borderRadius={2} marginTop={5}/>
-        </SkeletonPlaceholder.Item>
-        </SkeletonPlaceholder.Item>                 
-                </SkeletonPlaceholder>
-    );
+export default function NewSkeleton(props) {
+  return (
+    <ContentLoader
+      width={400}
+      height={150}
+      viewBox="0 0 400 150"
+      backgroundColor="#fed130"
+      foregroundColor="#000"
+      {...props}
+    >
+      <Rect x="15" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="15" y="110" rx="5" ry="5" width="100" height="20" />
+
+      <Rect x="135" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="135" y="110" rx="5" ry="5" width="100" height="20" />
+
+      <Rect x="255" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="255" y="110" rx="5" ry="5" width="100" height="20" />
+
+      <Rect x="380" y="15" rx="10" ry="10" width="100" height="80" />
+      <Rect x="380" y="110" rx="5" ry="5" width="100" height="20" />
+    </ContentLoader>
+  );
 }
